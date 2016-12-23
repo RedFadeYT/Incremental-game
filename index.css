@@ -1,0 +1,16 @@
+body {
+  background-color : #303050;
+  color : #ffffff;
+  font-family : "Consolas", Monaco, monospace;
+  font-size: 20px;
+}
+
+button {
+  background-color : #808080
+  border: none;
+  color: #ffff80;
+  font-size: 20px;
+  padding: 0px 0px;
+  border-radius: 8px;
+  font-family : "Consolas", Monaco, monospace;
+}
