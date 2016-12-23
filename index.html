@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+ <html>
+	<head>
+		<style>
+			body {
+				background-color : #303050;
+				color : #ffffff;
+				font-family : "Consolas", Monaco, monospace;
+				font-size: 20px;
+			}
+
+			button {
+				background-color : #808080;
+				border: none;
+				color: #ffff80;
+				font-size: 20px;
+				padding: 0px 0px;
+				border-radius: 8px;
+				font-family : "Consolas", Monaco, monospace;
+			}
+		</style>
+		<title>Page Title</title>
+	</head>
+	
+	<body>
+		<script>
+			var coins = 0;
+			function init() {
+				generate();
+			};
+			
+			function coinClick() {
+				coins += 1;
+				generate();
+			};
+			
+			function generate()
+			{
+				page = "";
+				page += getTitle();
+				page += getCoinCounter();
+				page += getCoinButton();
+				if(coins >= 100)
+				{
+					page += getYouWin();
+				}
+				document.getElementsByTagName("BODY")[0].innerHTML = page;
+			};
+			
+			function getTitle()
+			{
+				return "click 100 times to win<br>";
+			}
+			
+			function getCoinCounter()
+			{
+				return "you have " + coins + " coins. <br>";
+			}
+			
+			function getCoinButton()
+			{
+				return '<button onclick="coinClick()">&nbsp;Get coin&nbsp;</button><br>';
+			}
+			
+			function getYouWin()
+			{
+				return "u lose! LOL<br>";
+			}
+			
+			window.onload = init();
+		</script>
+	</body>
+</html>
