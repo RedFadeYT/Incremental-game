@@ -1,6 +1,6 @@
 var version = "V1.0.1";
 var coins = 0;
-var upgrades = {"House" : 100, "Apartment" : 150};
+var upgrades = {"House" : 50, "Apartment" : 100};
 var bought = {"House" : 0, "Apartment" : 0};
 var increment = 1;
 var nextUpgrade = 100;
