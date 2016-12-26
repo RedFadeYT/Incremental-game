@@ -18,7 +18,7 @@ function coinClick() {
 function init() {
     "use strict";
     document.getElementById("Title").innerHTML+= version;
-    setInterval(function(){coins+= (bought["House"] * 1 + bought["Apartment"] * 10); update();}, 1000)
+    setInterval(function(){coins+= (bought["House"] * 0.2 + bought["Apartment"] * 5); update();}, 1000)
     update();
 }
 
