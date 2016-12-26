@@ -14,3 +14,14 @@ button {
   border-radius: 8px;
   font-family : "Consolas", Monaco, monospace;
 }
+
+#UpgradeButtons {
+    border: 2px solid black;
+    width: 300px;
+    height: auto;
+}
+
+#UpgradeButtons Button {
+    margin: 5px;
+    padding: 10px;
+}
