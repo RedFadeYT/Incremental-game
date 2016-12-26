@@ -1,55 +1,26 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
  <html>
 	<head>
+		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="index.css">
 		<title>Incremental</title>
+        <script type="text/javascript" src="incrFunction.js"></script>
 	</head>
 	
 	<body>
-		<script>
-			var coins = 0;
-			function init() {
-				generate();
-			};
-			
-			function coinClick() {
-				coins += 1;
-				generate();
-			};
-			
-			function generate()
-			{
-				page = "";
-				page += getTitle();
-				page += getCoinCounter();
-				page += getCoinButton();
-				if(coins >= 100)
-				{
-					page += getYouWin();
-				}
-				document.getElementsByTagName("BODY")[0].innerHTML = page;
-			};
-			
-			function getTitle()
-			{
-				return "click 100 times to win<br>";
-			}
-			
-			function getCoinCounter()
-			{
-				return "you have " + coins + " coins. <br>";
-			}
-			
-			function getCoinButton()
-			{
-				return '<button onclick="coinClick()">&nbsp;Get coin&nbsp;</button><br>';
-			}
-			
-			function getYouWin()
-			{
-				return "u lose! LOL<br>";
-			}
-			
+		<p id="Title">Incremental Game </p>
+		<p id="coins"></p>
+		<button onclick="coinClick()">Get coins</button>
+        <br>
+        <br>
+        <br>
+        <p>Upgrades</p>
+        <div id="UpgradeButtons">
+            <!-- TODO: Make the Init() function generate all these upgrade button as that adds much more readability-->
+            <button class="House" onclick="buy('House')">Buy house</button>
+            <button class="House" onclick="buy('Apartment')">Buy Apartment</button>
+        </div>
+        <script>    
 			window.onload = init();
 		</script>
 	</body>
