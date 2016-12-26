@@ -31,7 +31,8 @@ function buy(thing) {
     "use strict";
     if (coins >= upgrades[thing]) {
         coins -= upgrades[thing];
-        upgrades[thing] *= 0.2;
+        upgrades[thing] *= 1.2;
+        document.getElementById(thing).value = "Buy Tenant Cost: "+ upgrades[thing];
         bought[thing] = bought[thing] + 1;
         update();
     }
