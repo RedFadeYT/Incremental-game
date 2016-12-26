@@ -1,9 +1,9 @@
-let version = "V1.0.1";
-let coins = 0;
-let upgrades = {"Tenant" : 10, "Apartment" : 100};
-let bought = {"Tenant" : 0, "Apartment" : 0};
-let increment = 1;
-let nextUpgrade = 100;
+var version = "V1.0.1";
+var coins = 0;
+var upgrades = {"Tenant" : 10, "Apartment" : 100};
+var bought = {"Tenant" : 0, "Apartment" : 0};
+var increment = 1;
+var nextUpgrade = 100;
 function update() {
     "use strict";
     document.getElementById("coins").innerHTML = coins.toFixed(1) + " coins";
@@ -32,7 +32,7 @@ function buy(thing) {
     if (coins >= upgrades[thing]) {
         coins -= upgrades[thing];
         upgrades[thing] *= 1.2;
-        document.getElementById(thing).value = "Buy " + thing + " Cost: "+ upgrades[thing];
+        document.getElementById(thing).firstChild.data = "Buy {0} Cost: {1}".format(thing, upgrades[thing].toFixed(1));
         bought[thing] = bought[thing] + 1;
         update();
     }
