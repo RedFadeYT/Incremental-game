@@ -1,9 +1,9 @@
-var version = "V1.0.1";
-var coins = 0;
-var upgrades = {"House" : 50, "Apartment" : 100};
-var bought = {"House" : 0, "Apartment" : 0};
-var increment = 1;
-var nextUpgrade = 100;
+let version = "V1.0.1";
+let coins = 0;
+let upgrades = {"House" : 50, "Apartment" : 100};
+let bought = {"House" : 0, "Apartment" : 0};
+let increment = 1;
+let nextUpgrade = 100;
 function update() {
     "use strict";
     document.getElementById("coins").innerHTML = coins.toFixed(1) + " coins";
