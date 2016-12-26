@@ -1,28 +1,31 @@
-  <!DOCTYPE html>
- <html>
+<!DOCTYPE html>
+<html>
 	<head>
-		<meta charset="utf-8"/>
-		<link rel="stylesheet" type="text/css" href="index.css">
-		<title>Incremental</title>
-        	<script type="text/javascript" src="incrFunction.js"></script>
+	    <meta charset="utf-8"/>
+	    <link rel="stylesheet" type="text/css" href="index.css">
+	    <title>Incremental</title>
+	    <script type="text/javascript" src="utility.js"></script>
+	    <script type="text/javascript" src="incrFunction.js"></script>
 	</head>
-	
+
 	<body>
-		<p id="Title">Incremental Game </p>
-		<p id="coins"></p>
-		<button onclick="coinClick()">Get coins</button>
-        <br>
-        <br>
-        <br>
-        <p>Upgrades</p>
-        <div id="UpgradeButtons">
-            <!-- TODO: Make the Init() function generate all these upgrade button as that adds much more readability-->
-            <button id="Tenant" onclick="buy('Tenant')">Buy Tenant Cost: 10</button>
-		
-            <button id="House" onclick="buy('Apartment')">Buy Apartment Cost: 100</button>
-        </div>
-        <script>    
-			window.onload = init();
-		</script>
+	    <p id="Title">Incremental Game </p>
+	    <p id="coins"></p>
+	    <button onclick="coinClick()">Get coins</button>
+	    <br>
+	    <br>
+	    <br>
+	    <p>Upgrades</p>
+	    <div id="UpgradeButtons">
+	        <!-- TODO: Make the Init() function generate all these upgrade button as that adds much more readability
+	        The important thing to think about is that the Id must be the same as the argument passed into the buy function
+	        Those two should also be the same as the name the arrays in incrFunction.js-->
+	        <button id="Tenant" onclick="buy('Tenant')" >Buy Tenant Cost: 10.0</button>
+	
+	        <button id="Apartment" onclick="buy('Apartment')" value="Test">Buy Apartment Cost: 100.0</button>
+	    </div>
+	    <script>    
+	        window.onload = init();
+	    </script>
 	</body>
 </html>
