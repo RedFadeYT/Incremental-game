@@ -1,6 +1,6 @@
 let version = "V1.0.1";
 let coins = 0;
-let upgrades = {"House" : 50, "Apartment" : 100};
+let upgrades = {"House" : 10, "Apartment" : 100};
 let bought = {"House" : 0, "Apartment" : 0};
 let increment = 1;
 let nextUpgrade = 100;
@@ -18,7 +18,7 @@ function coinClick() {
 function init() {
     "use strict";
     document.getElementById("Title").innerHTML+= version;
-    setInterval(function(){coins+= (bought["House"] * 0.1 + bought["Apartment"] * 5); update();}, 1000)
+    setInterval(function(){coins+= (bought["House"] * 1 + bought["Apartment"] * 10); update();}, 1000)
     update();
 }
 
