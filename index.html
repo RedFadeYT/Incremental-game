@@ -13,7 +13,7 @@
 	    <p id="coins"></p>
 	    <button onclick="coinClick()">Get coins</button>
 	    <br>
-	    <br>
+	    <p id="CPS"></p>
 	    <br>
 	    <p>Upgrades</p>
 	    <div id="UpgradeButtons">
@@ -21,10 +21,16 @@
 	        The important thing to think about is that the Id must be the same as the argument passed into the buy function
 	        Those two should also be the same as the name the arrays in incrFunction.js-->
 	        <button id="Tenant" onclick="buy('Tenant')" >Buy Tenant Cost: 10.0</button>
-	
+
 	        <button id="Apartment" onclick="buy('Apartment')" value="Test">Buy Apartment Cost: 100.0</button>
 	    </div>
-	    <script>    
+        <div id="Cheats">
+        <p1>Debug Cheats</p1>
+        <br>
+        <p2>(WILL BE DELETED WHEN GAME IS FULLY FINISHED)</p2>
+        <button id="infcoin" onclick="infCoins()">Infinite Coins</button>
+        </div>
+	    <script>
 	        window.onload = init();
 	    </script>
 	</body>
