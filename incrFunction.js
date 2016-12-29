@@ -4,9 +4,11 @@ var upgrades = {"Tenant" : 10, "Apartment" : 100};
 var bought = {"Tenant" : 0, "Apartment" : 0};
 var increment = 1;
 var nextUpgrade = 100;
+
 function update() {
     "use strict";
     document.getElementById("coins").innerHTML = coins.toFixed(1) + " coins";
+    document.getElementById("CPS").innerHTML = (bought.Tenant * 0.2 + bought.Apartment * 5).toFixed(1) + " Coins Per Second";
 }
 
 function coinClick() {
@@ -17,8 +19,8 @@ function coinClick() {
 
 function init() {
     "use strict";
-    document.getElementById("Title").innerHTML+= version;
-    setInterval(function(){coins+= (bought["Tenant"] * 0.2 + bought["Apartment"] * 5); update();}, 1000)
+    document.getElementById("Title").innerHTML += version;
+    setInterval(function () {coins += (bought.Tenant * 0.2 + bought.Apartment * 5); update(); }, 1000);
     update();
 }
 
@@ -36,4 +38,10 @@ function buy(thing) {
         bought[thing] = bought[thing] + 1;
         update();
     }
+}
+
+function infCoins() {
+    "use strict";
+    coins += 1000000;
+    update();
 }
