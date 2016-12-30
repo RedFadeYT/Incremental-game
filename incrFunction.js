@@ -33,7 +33,7 @@ function buy(thing) {
     "use strict";
     if (coins >= upgrades[thing]) {
         coins -= upgrades[thing];
-        upgrades[thing] *= 1.2;
+        upgrades[thing] *= 1.1;
         document.getElementById(thing).firstChild.data = "Buy {0} Cost: {1}".format(thing, upgrades[thing].toFixed(1));
         bought[thing] = bought[thing] + 1;
         update();
