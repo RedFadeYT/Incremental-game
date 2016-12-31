@@ -9,6 +9,8 @@ function update() {
     "use strict";
     document.getElementById("coins").innerHTML = coins.toFixed(1) + " coins";
     document.getElementById("CPS").innerHTML = (bought.Tenant * 0.2 + bought.Apartment * 5).toFixed(1) + " Coins Per Second";
+    document.getElementById("OTenant").innerHTML = "Tenants Owned: " + bought.Tenant;
+    document.getElementById("OApartment").innerHTML = "Apartments Owned: " + bought.Apartment;
 }
 
 function coinClick() {
