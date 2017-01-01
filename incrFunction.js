@@ -4,6 +4,7 @@ var upgrades = {"Tenant" : 10, "Apartment" : 100};
 var bought = {"Tenant" : 0, "Apartment" : 0};
 var increment = 1;
 var nextUpgrade = 100;
+var upgradeIncrement = 100;
 
 function update() {
     "use strict";
@@ -36,6 +37,17 @@ function buy(thing) {
         upgrades[thing] *= 1.1;
         document.getElementById(thing).firstChild.data = "Buy {0} Cost: {1}".format(thing, upgrades[thing].toFixed(1));
         bought[thing] = bought[thing] + 1;
+        update();
+    }
+}
+
+//For upgrade click income
+function upgrade() {
+    "use strict";
+    if (coins >= upgradeIncrement) {
+        increment *= 3;
+        coins -= upgradeIncremental;
+        upgradeIncremental *= 5;
         update();
     }
 }
