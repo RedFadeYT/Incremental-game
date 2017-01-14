@@ -44,12 +44,12 @@ function buy(thing) {
 }
 
 //For upgrade click income
-function upgrade() {
+function upgradeClick() {
     "use strict";
     if (coins >= upgradeIncrement) {
         increment *= 3;
-        coins -= upgradeIncremental;
-        upgradeIncremental *= 5;
+        coins -= upgradeIncrement;
+        upgradeIncrement *= 5;
         update();
     }
 }
