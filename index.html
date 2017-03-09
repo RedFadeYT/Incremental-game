@@ -16,23 +16,26 @@
 	    <p id="CPS"></p>
 	    <br>
 	    <p>Upgrades</p>
+
 	    <div id="UpgradeButtons">
 	        <!-- TODO: Make the Init() function generate all these upgrade button as that adds much more readability
 	        The important thing to think about is that the Id must be the same as the argument passed into the buy function
 	        Those two should also be the same as the name the arrays in incrFunction.js-->
 	        <button id="Tenant" onclick="buy('Tenant')" >Buy Tenant Cost: 10.0</button>
 
-	        <p id="OTenant"</p>
+	        <p id="OTenant"></p>
 	        <p id="OApartment"></p>
 
 	        <button id="Apartment" onclick="buy('Apartment')" value="Test">Buy Apartment Cost: 100.0</button>
 	    </div>
+
         <div id="Cheats">
         <p1>Debug Cheats</p1>
         <br>
         <p2>(WILL BE DELETED WHEN GAME IS FULLY FINISHED)</p2>
         <button id="infcoin" onclick="infCoins()">+1 Million Coins</button>
         </div>
+
 	    <script>
 	        window.onload = init();
 	    </script>

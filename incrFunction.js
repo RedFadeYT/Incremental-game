@@ -1,10 +1,10 @@
-var version = "V1.0.1";
-var coins = 0;
-var upgrades = {"Tenant" : 10, "Apartment" : 100};
-var bought = {"Tenant" : 0, "Apartment" : 0};
-var increment = 1;
-var nextUpgrade = 100;
-var upgradeIncrement = 100;
+var version = "V1.0.1"; //Version of the game
+var coins = 0; //Currency, and starting coins
+var upgrades = {"Tenant" : 10, "Apartment" : 100}; //Upgrades and their prices
+var bought = {"Tenant" : 0, "Apartment" : 0}; //Amount of upgrades bought
+var increment = 1; //Amount of coins given by each click.
+var nextUpgrade = 100; //???
+var upgradeIncrement = 100; //Price of upgrading increment
 
 function update() {
     "use strict";
@@ -14,6 +14,7 @@ function update() {
     document.getElementById("OApartment").innerHTML = "Apartments Owned: " + bought.Apartment;
 }
 
+//Clicks add the value of increment to the coins variable
 function coinClick() {
     "use strict";
     coins += increment;
@@ -32,6 +33,9 @@ function getYouWin() {
     return "WIN!";
 }
 
+/**Finds amount of coins needed for selected upgrade, and if the amount of coins
+are over/equal the price, then the player gets the upgrade plus it increases
+by 1.1**/
 function buy(thing) {
     "use strict";
     if (coins >= upgrades[thing]) {
@@ -54,6 +58,7 @@ function upgradeClick() {
     }
 }
 
+//The cheat for a million coins
 function infCoins() {
     "use strict";
     coins += 1000000;
